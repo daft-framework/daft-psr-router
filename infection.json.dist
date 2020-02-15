@@ -1,0 +1,55 @@
+{
+    "timeout": 10,
+    "source": {
+        "directories": [
+            ".\/src\/"
+        ]
+    },
+    "logs": {
+        "text": "infection.log"
+    },
+    "mutators": {
+        "@default": true,
+		"ArrayOneItem": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Compiler::CompileDispatcherArray"
+			]
+		},
+		"Break_": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Found::handle"
+			]
+		},
+		"LogicalAnd": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		},
+		"LogicalNot": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Found::handle"
+			]
+		},
+		"LogicalOr": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		},
+		"MBString": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Compiler::ClosureForFilterThatMatchesUri"
+			]
+		},
+		"PregQuote": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		},
+		"UnwrapArrayFilter": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Compiler::CompileDispatcherArray",
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		}
+    }
+}

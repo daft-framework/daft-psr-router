@@ -1,0 +1,71 @@
+{
+	"name": "daft-framework/daft-psr-router",
+	"description": "PSR-based variant of signpostmarv/daft-router",
+	"type": "library",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "SignpostMarv",
+			"email": "me@signpostmarv.name"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"DaftFramework\\DaftRouter\\": [
+				"./src/"
+			]
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"DaftFramework\\DaftRouter\\": [
+				"./tests/"
+			]
+		}
+	},
+	"config": {
+		"classmap-authoritative": true,
+		"sort-packages": true
+	},
+	"scripts": {
+		"tests": [
+			"phpunit",
+			"infection --min-msi=100",
+			"@static-analysis"
+		],
+		"static-analysis": [
+			"psalm --shepherd --show-info=false",
+			"phpcpd src",
+			"phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
+			"composer-require-checker check ./composer.json",
+			"php-cs-fixer fix --verbose --allow-risky=yes --dry-run --diff-format=udiff"
+		]
+	},
+	"conflict": {
+		"vimeo/psalm": "<3.8.3"
+	},
+	"suggest": {
+		"vimeo/psalm": "Useful for static analysis to reduce runtime type checks etc."
+	},
+	"require": {
+		"php": "^7.4",
+		"ext-mbstring": "*",
+		"nikic/fast-route": "^1.3",
+		"psr/http-message": "^1.0",
+		"psr/http-server-handler": "^1.0",
+		"psr/http-server-middleware": "^1.0",
+		"signpostmarv/daft-interface-collector": "^2.2"
+	},
+	"require-dev": {
+		"infection/infection": "^0.15.2",
+		"maglnet/composer-require-checker": "^2.0",
+		"php-coveralls/php-coveralls": "^2.2",
+		"phpunit/phpunit": "^8.5",
+		"povils/phpmnd": "^2.2",
+		"psalm/plugin-phpunit": "^0.8.1",
+		"roave/security-advisories": "dev-master",
+		"sebastian/phpcpd": "^4.1",
+		"signpostmarv/php-cs-fixer-config": "^0.17.0",
+		"vimeo/psalm": "^3.8"
+	}
+}
