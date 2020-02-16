@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace DaftFramework\DaftRouter\Fixtures;
 
 use BadMethodCallException;
-use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 

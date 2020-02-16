@@ -6,9 +6,6 @@ declare(strict_types=1);
 
 namespace DaftFramework\DaftRouter\Fixtures;
 
-use DaftFramework\DaftRouter\TypedArgs;
-use InvalidArgumentException;
-
 /**
  * @template T1 as array{id:string, slug:string}
  *

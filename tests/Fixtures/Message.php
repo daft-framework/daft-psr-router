@@ -8,9 +8,7 @@ namespace DaftFramework\DaftRouter\Fixtures;
 
 use BadMethodCallException;
 use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
 
 class Message implements MessageInterface
 {

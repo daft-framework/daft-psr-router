@@ -6,7 +6,6 @@ declare(strict_types=1);
 
 namespace DaftFramework\DaftRouter\Fixtures;
 
-use BadMethodCallException;
 use DaftFramework\DaftRouter\Router\HereIsOneWeMadeEarlier;
 use DaftFramework\DaftRouter\Router\RequestNotIntercepted;
 use DaftFramework\DaftRouter\TypedArgs;
