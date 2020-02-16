@@ -58,7 +58,7 @@ class Secret implements TypedRoute, UntypedRoute
 
 	public function GenerateHandler() : RequestHandlerInterface
 	{
-		throw new BadMethodCallException('Not Implemented!');
+		return new HereIsOneWeMadeEarlier(new RequestNotIntercepted());
 	}
 
 	public static function Routes() : array

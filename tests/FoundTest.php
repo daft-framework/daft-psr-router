@@ -268,4 +268,47 @@ class FoundTest extends Base
 			$expected_route_type::RouteStringFromMethod($method)
 		);
 	}
+
+	public function test_conditional_access() : void
+	{
+		$handler = Router\Compiler::GenerateRouteCollectorHandler(
+			Fixtures\BasicSource::class
+		);
+
+		$dispatcher = simpleDispatcher($handler);
+
+		$request = new Fixtures\ServerRequest('/secret');
+
+		$found = Router\Dispatch::Resolve($dispatcher, $request);
+
+		static::assertInstanceOf(Router\Found::class, $found);
+		static::assertSame(Fixtures\Secret::class, $found->route);
+		static::assertSame([], $found->args);
+
+		$response = $found->handle();
+
+		static::assertSame(
+			Fixtures\Http401::HTTP_UNAUTHORIZED,
+			$response->getStatusCode()
+		);
+
+		$request = (
+			new Fixtures\ServerRequest('/secret')
+		)->withQueryParams([
+			'allow-through' => '1',
+		]);
+
+		$found = Router\Dispatch::Resolve($dispatcher, $request);
+
+		static::assertInstanceOf(Router\Found::class, $found);
+		static::assertSame(Fixtures\Secret::class, $found->route);
+		static::assertSame([], $found->args);
+
+		$response = $found->handle();
+
+		static::assertSame(
+			Router\RequestNotIntercepted::HTTP_INTERNAL_SERVER_ERROR,
+			$response->getStatusCode()
+		);
+	}
 }

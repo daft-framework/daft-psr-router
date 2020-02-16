@@ -11,6 +11,8 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class ServerRequest extends Request implements ServerRequestInterface
 {
+	private array $query_params = [];
+
 	public function getServerParams()
 	{
 		throw new BadMethodCallException('Not Implemented!');
@@ -28,12 +30,14 @@ class ServerRequest extends Request implements ServerRequestInterface
 
 	public function getQueryParams()
 	{
-		throw new BadMethodCallException('Not Implemented!');
+		return $this->query_params;
 	}
 
-	public function withQueryParams(array $_query)
+	public function withQueryParams(array $query)
 	{
-		throw new BadMethodCallException('Not Implemented!');
+		$this->query_params = $query;
+
+		return $this;
 	}
 
 	public function getUploadedFiles()

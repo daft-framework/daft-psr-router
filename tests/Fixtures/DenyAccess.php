@@ -22,9 +22,17 @@ class DenyAccess implements Interceptor
 	{
 		return new class() implements MiddlewareInterface {
 			public function process(
-				ServerRequestInterface $_request,
-				RequestHandlerInterface $_handler
+				ServerRequestInterface $request,
+				RequestHandlerInterface $handler
 			) : ResponseInterface {
+				if (
+					'1' === (
+						$request->getQueryParams()['allow-through'] ?? null
+					)
+				) {
+					return $handler->handle($request);
+				}
+
 				return new Http401();
 			}
 		};
