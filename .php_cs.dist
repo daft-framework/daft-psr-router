@@ -11,5 +11,6 @@ namespace SignpostMarv\CS;
 return ConfigUsedWithStaticAnalysis::createWithPaths(...[
 	__FILE__,
 	(__DIR__ . '/src/'),
+	(__DIR__ . '/tests/Fixtures/'),
 	(__DIR__ . '/tests/'),
 ]);
