@@ -120,7 +120,7 @@ class FoundTest extends Base
 	 *	2:string,
 	 *	3:class-string<TypedRoute>,
 	 *	4:array<string, string|null>,
-	 *	5:class-string<TypedArgs>|null,
+	 *	5:class-string<TypedArgs>,
 	 *	6:string
 	 * }>
 	 */
@@ -130,20 +130,29 @@ class FoundTest extends Base
 			[
 				[Fixtures\BasicSource::class],
 				'GET',
-				'/secret',
-				Fixtures\Secret::class,
-				[],
-				null,
-				'/secret',
-			],
-			[
-				[Fixtures\BasicSource::class],
-				'GET',
 				'/secret/1',
 				Fixtures\Secret::class,
 				['number' => '1'],
 				Fixtures\SecretNumber::class,
 				'/secret/1',
+			],
+			[
+				[Fixtures\BasicSource::class],
+				'GET',
+				'/profile/1',
+				Fixtures\Profile::class,
+				['id' => '1'],
+				Fixtures\Unslugged::class,
+				'/profile/1',
+			],
+			[
+				[Fixtures\BasicSource::class],
+				'GET',
+				'/profile/1~foo',
+				Fixtures\Profile::class,
+				['id' => '1', 'slug' => 'foo'],
+				Fixtures\Unslugged::class,
+				'/profile/1~foo',
 			],
 		];
 	}
@@ -163,7 +172,7 @@ class FoundTest extends Base
 	 * @param THTTP $method
 	 * @param class-string<TypedRoute> $expected_route_type
 	 * @param array<string, string|null> $expected_args
-	 * @param class-string<TypedArgs>|null $expected_typed_args_type
+	 * @param class-string<TypedArgs> $expected_typed_args_type
 	 */
 	public function test_typed_args(
 		array $sources,
@@ -171,7 +180,7 @@ class FoundTest extends Base
 		string $path,
 		string $expected_route_type,
 		array $expected_args,
-		? string $expected_typed_args_type,
+		string $expected_typed_args_type,
 		string $expected_route
 	) : void {
 		$handler = Router\Compiler::GenerateRouteCollectorHandler(
@@ -194,15 +203,69 @@ class FoundTest extends Base
 			new $expected_route_type($found->args)
 		)->TypedArgsFromUntyped($method);
 
-		if (null === $expected_typed_args_type) {
-			static::assertNull($typed);
-		} else {
 			static::assertInstanceOf($expected_typed_args_type, $typed);
-		}
 
 		static::assertSame(
 			$expected_route,
 			$expected_route_type::RouteStringFromTypedArgs($typed, $method)
+		);
+	}
+
+	/**
+	 * @return list<array{
+	 *	0:list<class-string<Source>>,
+	 *	1:THTTP,
+	 *	2:string,
+	 *	3:class-string<UntypedRoute>,
+	 *	4:string
+	 * }>
+	 */
+	public function UntypedRouteProvider() : array
+	{
+		return [
+			[
+				[Fixtures\BasicSource::class],
+				'GET',
+				'/secret',
+				Fixtures\Secret::class,
+				'/secret',
+			],
+		];
+	}
+
+	/**
+	 * @dataProvider UntypedRouteProvider
+	 *
+	 * @param list<class-string<Source>> $sources
+	 * @param THTTP $method
+	 * @param class-string<UntypedRoute> $expected_route_type
+	 */
+	public function test_untyped_route(
+		array $sources,
+		string $method,
+		string $path,
+		string $expected_route_type,
+		string $expected_route
+	) : void {
+		$handler = Router\Compiler::GenerateRouteCollectorHandler(
+			...$sources
+		);
+
+		$dispatcher = simpleDispatcher($handler);
+
+		$request = (
+			new Fixtures\ServerRequest($path)
+		)->withMethod($method);
+
+		$found = Router\Dispatch::Resolve($dispatcher, $request);
+
+		static::assertInstanceOf(Router\Found::class, $found);
+		static::assertSame($expected_route_type, $found->route);
+		static::assertSame([], $found->args);
+
+		static::assertSame(
+			$expected_route,
+			$expected_route_type::RouteStringFromMethod($method)
 		);
 	}
 }

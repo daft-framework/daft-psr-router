@@ -20,6 +20,11 @@
       <code>__construct</code>
     </PossiblyUnusedMethod>
   </file>
+  <file src="tests/Fixtures/Profile.php">
+    <MoreSpecificImplementedParamType occurrences="1">
+      <code>$args</code>
+    </MoreSpecificImplementedParamType>
+  </file>
   <file src="tests/Fixtures/Secret.php">
     <MoreSpecificImplementedParamType occurrences="1">
       <code>$args</code>

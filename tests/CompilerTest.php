@@ -100,6 +100,13 @@ class CompilerTest extends Base
 							],
 							0 => Fixtures\Secret::class,
 						],
+						'/profile/{id:\d+}[~{slug:[^\/]+}]' => [
+							Interceptor::class => [],
+							Modifier::class => [
+								Fixtures\ChangeProtocolVersion::class,
+							],
+							0 => Fixtures\Profile::class,
+						],
 					],
 				],
 			],

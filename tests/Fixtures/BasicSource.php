@@ -18,6 +18,7 @@ final class BasicSource implements Source
 			ChangeProtocolVersion::class,
 			Home::class,
 			Secret::class,
+			Profile::class,
 		];
 	}
 }

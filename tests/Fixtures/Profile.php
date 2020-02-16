@@ -11,18 +11,15 @@ use DaftFramework\DaftRouter\Router\HereIsOneWeMadeEarlier;
 use DaftFramework\DaftRouter\Router\RequestNotIntercepted;
 use DaftFramework\DaftRouter\TypedArgs;
 use DaftFramework\DaftRouter\TypedRoute;
-use DaftFramework\DaftRouter\UntypedRoute;
 use Psr\Http\Server\RequestHandlerInterface;
 use function rawurlencode;
-use UnexpectedValueException;
 
 /**
- * @template T1 as array{number?:string}
+ * @template T1 as array{id:string, slug?:string}
  *
- * @template-implements TypedRoute<T1, 'GET', SecretNumber>
- * @template-implements UntypedRoute<T1>
+ * @template-implements TypedRoute<T1, 'GET', Slugged|Unslugged>
  */
-class Secret implements TypedRoute, UntypedRoute
+class Profile implements TypedRoute
 {
 	/**
 	 * @var T1
@@ -41,19 +38,14 @@ class Secret implements TypedRoute, UntypedRoute
 
 	public function TypedArgsFromUntyped(string $_method = null) : TypedArgs
 	{
-		if (isset($this->args['number']) && is_string($this->args['number'])) {
-			return new SecretNumber([
-				'number' => $this->args['number'],
-			]);
+		if (isset($this->args['id'], $this->args['slug'])) {
+			/** @var array{id:string, slug:string} */
+			$args = $this->args;
+
+			return new Slugged($args);
 		}
 
-		throw new UnexpectedValueException(
-			'Cannot call ' .
-			__METHOD__ .
-			'() when number is not present on ' .
-			static::class .
-			'::$args'
-		);
+		return new Unslugged(['id' => $this->args['id']]);
 	}
 
 	public function GenerateHandler() : RequestHandlerInterface
@@ -64,26 +56,23 @@ class Secret implements TypedRoute, UntypedRoute
 	public static function Routes() : array
 	{
 		return [
-			'/secret' => ['GET'],
-			'/secret/not-secret' => ['GET'],
-			'/secret/still-secret' => ['GET'],
-			'/secret/{number:\d+}' => ['GET'],
+			'/profile/{id:\d+}[~{slug:[^\/]+}]' => ['GET'],
 		];
 	}
 
 	/**
-	 * @param SecretNumber $args
+	 * @param Slugged|Unslugged $args
 	 */
 	public static function RouteStringFromTypedArgs(
 		TypedArgs $args,
 		string $method = null
 	) : string {
-		return '/secret/' . rawurlencode((string) $args->number);
-	}
+		$out = '/profile/' . rawurlencode((string) $args->id);
 
-	public static function RouteStringFromMethod(
-		string $method = null
-	) : string {
-		return '/secret';
+		if ($args instanceof Slugged) {
+			$out .= '~' . rawurlencode((string) $args->slug);
+		}
+
+		return $out;
 	}
 }

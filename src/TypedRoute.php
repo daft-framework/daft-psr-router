@@ -29,10 +29,10 @@ interface TypedRoute extends Route
 	 */
 	public function TypedArgsFromUntyped(
 		string $method
-	) : ? TypedArgs;
+	) : TypedArgs;
 
 	public static function RouteStringFromTypedArgs(
-		? TypedArgs $args,
+		TypedArgs $args,
 		string $method
 	) : string;
 }
