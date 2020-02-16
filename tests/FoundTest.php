@@ -203,7 +203,7 @@ class FoundTest extends Base
 			new $expected_route_type($found->args)
 		)->TypedArgsFromUntyped($method);
 
-			static::assertInstanceOf($expected_typed_args_type, $typed);
+		static::assertInstanceOf($expected_typed_args_type, $typed);
 
 		static::assertSame(
 			$expected_route,
