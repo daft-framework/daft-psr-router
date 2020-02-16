@@ -31,12 +31,12 @@
 		"tests": [
 			"phpunit",
 			"infection --min-msi=100",
+			"psalm --show-info=false",
 			"@static-analysis"
 		],
 		"static-analysis": [
-			"psalm --shepherd --show-info=false",
-			"phpcpd src",
-			"phpmnd ./ --exclude=./phpunit/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
+			"phpcpd src tests",
+			"phpmnd ./ --exclude=./coverage/ --exclude=./vendor/ --non-zero-exit-on-violation --hint",
 			"composer-require-checker check ./composer.json",
 			"php-cs-fixer fix --verbose --allow-risky=yes --dry-run --diff-format=udiff"
 		]
