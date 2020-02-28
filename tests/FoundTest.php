@@ -272,6 +272,9 @@ class FoundTest extends Base
 		);
 	}
 
+	/**
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 */
 	public function test_conditional_access() : void
 	{
 		$handler = Router\Compiler::GenerateRouteCollectorHandler(
