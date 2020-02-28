@@ -22,7 +22,7 @@
 		},
 		"FalseValue": {
 			"ignore": [
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUploadedFiles"
+				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUri"
 			]
 		},
 		"LogicalAnd": {
