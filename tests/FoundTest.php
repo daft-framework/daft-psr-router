@@ -239,6 +239,10 @@ class FoundTest extends Base
 	/**
 	 * @dataProvider UntypedRouteProvider
 	 *
+	 * @covers \DaftFramework\DaftRouter\Router\Compiler::ClosureForFilterThatMatchesUri()
+	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
+	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
+	 *
 	 * @param list<class-string<Source>> $sources
 	 * @param THTTP $method
 	 * @param class-string<UntypedRoute> $expected_route_type
