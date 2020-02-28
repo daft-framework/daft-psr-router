@@ -242,6 +242,8 @@ class FoundTest extends Base
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::ClosureForFilterThatMatchesUri()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
 	 *
 	 * @param list<class-string<Source>> $sources
 	 * @param THTTP $method
@@ -277,7 +279,20 @@ class FoundTest extends Base
 	}
 
 	/**
+	 * @covers \DaftFramework\DaftRouter\Router\Compiler::ClosureForFilterThatMatchesUri()
+	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
+	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
+	 * @covers \DaftFramework\DaftRouter\Router\Found::handle()
+	 * @covers \DaftFramework\DaftRouter\Router\HereIsOneWeMadeEarlier::__construct()
+	 * @covers \DaftFramework\DaftRouter\Router\HereIsOneWeMadeEarlier::handle()
+	 * @covers \DaftFramework\DaftRouter\Router\MutableRequest::ObtainBaseRequest()
+	 * @covers \DaftFramework\DaftRouter\Router\MutableRequest::__construct()
+	 * @covers \DaftFramework\DaftRouter\Router\MutableRequest::getQueryParams()
+	 * @covers \DaftFramework\DaftRouter\Router\RequestNotIntercepted::__construct()
+	 * @covers \DaftFramework\DaftRouter\Router\RequestNotIntercepted::getStatusCode()
+	 * @covers \DaftFramework\DaftRouter\Router\RequestNotIntercepted::withProtocolVersion()
 	 */
 	public function test_conditional_access() : void
 	{
