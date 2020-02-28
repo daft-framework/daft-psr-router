@@ -76,9 +76,11 @@ final class Found extends Dispatch
 
 		$here_is_one_we_made_earlier = new HereIsOneWeMadeEarlier($response);
 
+		$request = new MutableRequest($this->request);
+
 		foreach ($this->interceptors as $interceptor) {
 			$response = (new $interceptor())->GenerateProcessor()->process(
-				$this->request,
+				$request,
 				$here_is_one_we_made_earlier
 			);
 
@@ -89,9 +91,11 @@ final class Found extends Dispatch
 
 		$route = $this->route;
 
+		$request = $request->ObtainBaseRequest();
+
 		if ($response instanceof RequestNotIntercepted) {
 			$response = (new $route($this->args))->GenerateHandler()->handle(
-				$this->request
+				$request
 			);
 		}
 
@@ -101,7 +105,7 @@ final class Found extends Dispatch
 			);
 
 			$response = (new $modifier())->GenerateProcessor()->process(
-				$this->request,
+				$request,
 				$here_is_one_we_made_earlier
 			);
 		}
