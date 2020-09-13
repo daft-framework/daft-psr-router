@@ -30,4 +30,9 @@
       <code>$args</code>
     </MoreSpecificImplementedParamType>
   </file>
+  <file src="tests/FoundTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertInstanceOf</code>
+    </RedundantConditionGivenDocblockType>
+  </file>
 </files>
