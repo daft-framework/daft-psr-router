@@ -38,7 +38,7 @@ class Secret implements TypedRoute, UntypedRoute
 		$this->args = $args;
 	}
 
-	public function TypedArgsFromUntyped(string $_method = null) : TypedArgs
+	public function TypedArgsFromUntyped(string $method = null) : TypedArgs
 	{
 		if (isset($this->args['number']) && is_string($this->args['number'])) {
 			return new SecretNumber([

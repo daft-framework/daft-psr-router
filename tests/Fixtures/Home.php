@@ -13,7 +13,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class Home implements Route
 {
-	public function __construct(array $_args)
+	public function __construct(array $args)
 	{
 	}
 

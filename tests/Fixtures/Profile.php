@@ -34,7 +34,7 @@ class Profile implements TypedRoute
 		$this->args = $args;
 	}
 
-	public function TypedArgsFromUntyped(string $_method = null) : TypedArgs
+	public function TypedArgsFromUntyped(string $method = null) : TypedArgs
 	{
 		if (isset($this->args['id'], $this->args['slug'])) {
 			/** @var array{id:string, slug:string} */

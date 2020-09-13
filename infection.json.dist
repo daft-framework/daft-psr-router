@@ -20,6 +20,11 @@
 				"DaftFramework\\DaftRouter\\Router\\Found::handle"
 			]
 		},
+		"CastArray": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		},
 		"FalseValue": {
 			"ignore": [
 				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUri"

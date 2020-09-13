@@ -80,7 +80,7 @@ abstract class Dispatch
 			! is_string($route_info[self::INDEX_RESULT][self::INDEX_ROUTE]) ||
 			! is_a($route_info[self::INDEX_RESULT][self::INDEX_ROUTE], Route::class, true) ||
 			$route_info[self::INDEX_RESULT][Interceptor::class] !== array_filter(
-				$route_info[self::INDEX_RESULT][Interceptor::class],
+				(array) $route_info[self::INDEX_RESULT][Interceptor::class],
 				/**
 				 * @param mixed $value
 				 * @param array-key $key
@@ -94,7 +94,7 @@ abstract class Dispatch
 				ARRAY_FILTER_USE_BOTH
 			) ||
 			$route_info[self::INDEX_RESULT][Modifier::class] !== array_filter(
-				$route_info[self::INDEX_RESULT][Modifier::class],
+				(array) $route_info[self::INDEX_RESULT][Modifier::class],
 				/**
 				 * @param mixed $value
 				 * @param array-key $key

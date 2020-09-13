@@ -26,7 +26,7 @@ class Request extends Message implements RequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withRequestTarget($_request_target)
+	public function withRequestTarget($request_target)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -48,7 +48,7 @@ class Request extends Message implements RequestInterface
 		return $this->uri;
 	}
 
-	public function withUri(UriInterface $_uri, $_preserve_host = false)
+	public function withUri(UriInterface $uri, $preserveHost = false)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}

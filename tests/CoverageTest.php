@@ -58,7 +58,7 @@ final class CoverageTest extends Base
 				return false;
 			}
 
-			public function seek($_offset, $_whence = SEEK_SET) : void
+			public function seek($offset, $whence = SEEK_SET) : void
 			{
 				throw new RuntimeException('Not Implemented!');
 			}

@@ -23,7 +23,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withCookieParams(array $_cookies)
+	public function withCookieParams(array $cookies)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -45,7 +45,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withUploadedFiles(array $_files)
+	public function withUploadedFiles(array $files)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -55,7 +55,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withParsedBody($_data)
+	public function withParsedBody($data)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -65,17 +65,17 @@ class ServerRequest extends Request implements ServerRequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function getAttribute($_name, $_default = null)
+	public function getAttribute($name, $default = null)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withAttribute($_name, $_value)
+	public function withAttribute($name, $value)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withoutAttribute($_name)
+	public function withoutAttribute($name)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}

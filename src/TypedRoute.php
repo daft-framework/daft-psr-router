@@ -7,11 +7,9 @@ declare(strict_types=1);
 namespace DaftFramework\DaftRouter;
 
 /**
- * @psalm-type THTTP = 'GET'|'POST'|'CONNECT'|'DELETE'|'HEAD'|'OPTIONS'|'PATCH'|'PURGE'|'PUT'|'TRACE'
- *
  * @template T1 as array<string, scalar|null>
- * @template T2 as THTTP
- * @template T3 as TypedArgs|null
+ * @template T2 as 'GET'|'POST'|'CONNECT'|'DELETE'|'HEAD'|'OPTIONS'|'PATCH'|'PURGE'|'PUT'|'TRACE'
+ * @template T3 as TypedArgs
  *
  * @template-extends Route<T1>
  */

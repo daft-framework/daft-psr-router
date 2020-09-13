@@ -63,17 +63,17 @@ class Uri implements UriInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withScheme($_scheme)
+	public function withScheme($scheme)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withHost($_host)
+	public function withHost($host)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withPort($_port)
+	public function withPort($port)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -83,17 +83,17 @@ class Uri implements UriInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withQuery($_query)
+	public function withQuery($query)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withFragment($_fragment)
+	public function withFragment($fragment)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withUserInfo($_user, $_password = null)
+	public function withUserInfo($user, $password = null)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}

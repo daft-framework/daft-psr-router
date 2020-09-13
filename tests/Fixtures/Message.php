@@ -31,32 +31,32 @@ class Message implements MessageInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function hasHeader($_name)
+	public function hasHeader($name)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function getHeader($_name)
+	public function getHeader($name)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function getHeaderLine($_name)
+	public function getHeaderLine($name)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withHeader($_name, $_value)
+	public function withHeader($name, $value)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withAddedHeader($_name, $_value)
+	public function withAddedHeader($name, $value)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withoutHeader($_name)
+	public function withoutHeader($name)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -66,7 +66,7 @@ class Message implements MessageInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withBody(StreamInterface $_body)
+	public function withBody(StreamInterface $body)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
