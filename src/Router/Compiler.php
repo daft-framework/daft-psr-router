@@ -6,12 +6,15 @@ declare(strict_types=1);
 
 namespace DaftFramework\DaftRouter\Router;
 
+use function array_filter;
 use Closure;
 use DaftFramework\DaftRouter\Interceptor;
 use DaftFramework\DaftRouter\Modifier;
 use DaftFramework\DaftRouter\Route;
 use DaftFramework\DaftRouter\Source;
 use FastRoute\RouteCollector;
+use function is_a;
+use function mb_strpos;
 use SignpostMarv\DaftInterfaceCollector\StaticMethodCollector;
 
 /**

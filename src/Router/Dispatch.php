@@ -6,11 +6,23 @@ declare(strict_types=1);
 
 namespace DaftFramework\DaftRouter\Router;
 
+use function array_filter;
+use const ARRAY_FILTER_USE_BOTH;
+use function count;
 use DaftFramework\DaftRouter\Interceptor;
 use DaftFramework\DaftRouter\Modifier;
 use DaftFramework\DaftRouter\Route;
 use FastRoute\Dispatcher;
+use function is_a;
+use function is_array;
+use function is_int;
+use function is_null;
+use function is_string;
+use function preg_quote;
+use function preg_replace;
+use function preg_replace_callback;
 use Psr\Http\Message\ServerRequestInterface;
+use function rawurldecode;
 use UnexpectedValueException;
 
 abstract class Dispatch

@@ -11,6 +11,7 @@ use PHPUnit\Framework\TestCase as Base;
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\StreamInterface;
 use RuntimeException;
+use const SEEK_SET;
 
 final class CoverageTest extends Base
 {

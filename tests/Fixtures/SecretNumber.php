@@ -6,6 +6,7 @@ declare(strict_types=1);
 
 namespace DaftFramework\DaftRouter\Fixtures;
 
+use function ctype_digit;
 use DaftFramework\DaftRouter\TypedArgs;
 use InvalidArgumentException;
 

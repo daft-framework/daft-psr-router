@@ -11,6 +11,7 @@ use DaftFramework\DaftRouter\Router\RequestNotIntercepted;
 use DaftFramework\DaftRouter\TypedArgs;
 use DaftFramework\DaftRouter\TypedRoute;
 use DaftFramework\DaftRouter\UntypedRoute;
+use function is_string;
 use Psr\Http\Server\RequestHandlerInterface;
 use function rawurlencode;
 use UnexpectedValueException;

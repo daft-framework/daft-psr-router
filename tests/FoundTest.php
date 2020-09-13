@@ -7,7 +7,6 @@ declare(strict_types=1);
 namespace DaftFramework\DaftRouter;
 
 use function FastRoute\simpleDispatcher;
-use function is_subclass_of;
 use PHPUnit\Framework\TestCase as Base;
 
 /**
