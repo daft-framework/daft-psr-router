@@ -68,7 +68,7 @@ class Profile implements TypedRoute
 		$out = '/profile/' . rawurlencode((string) $args->id);
 
 		if ($args instanceof Slugged) {
-			$out .= '~' . rawurlencode((string) $args->slug);
+			$out .= '~' . rawurlencode($args->slug);
 		}
 
 		return $out;

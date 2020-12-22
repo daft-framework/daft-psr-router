@@ -30,6 +30,11 @@
 				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUri"
 			]
 		},
+		"InstanceOf_": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Found::handle"
+			]
+		},
 		"LogicalAnd": {
 			"ignore": [
 				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
