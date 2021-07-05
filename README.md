@@ -2,7 +2,7 @@ Copyright 2020 SignpostMarv
 
 # daft-psr-router
 [![Coverage Status](https://coveralls.io/repos/github/daft-framework/daft-psr-router/badge.svg?branch=main)](https://coveralls.io/github/daft-framework/daft-psr-router?branch=main)
-[![Build Status](https://travis-ci.org/daft-framework/daft-psr-router.svg?branch=main)](https://travis-ci.org/daft-framework/daft-psr-router)
+[![Build Status](https://github.com/daft-framework/daft-psr-router/actions/workflows/php.yml/badge.svg)](https://github.com/daft-framework/daft-psr-router/actions/workflows/php.yml)
 [![Type Coverage](https://shepherd.dev/github/daft-framework/daft-psr-router/coverage.svg)](https://shepherd.dev/github/daft-framework/daft-psr-router)
 
 Finally got around to creating a psr-based router. [Because reasons.](https://github.com/daft-framework/daft-router/blob/master/README.md)
