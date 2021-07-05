@@ -25,6 +25,16 @@
 				"DaftFramework\\DaftRouter\\Router\\Dispatch::route_info_is_invalid"
 			]
 		},
+		"Concat": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		},
+		"ConcatOperandRemoval": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+			]
+		},
 		"FalseValue": {
 			"ignore": [
 				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUri"
