@@ -58,9 +58,9 @@ class MutableRequest implements ServerRequestInterface
 		return $this->base_request->getUploadedFiles();
 	}
 
-	public function withUploadedFiles(array $uploaded_files)
+	public function withUploadedFiles(array $uploadedFiles)
 	{
-		$this->base_request = $this->base_request->withUploadedFiles($uploaded_files);
+		$this->base_request = $this->base_request->withUploadedFiles($uploadedFiles);
 
 		return $this;
 	}
@@ -109,9 +109,9 @@ class MutableRequest implements ServerRequestInterface
 		return $this->base_request->getRequestTarget();
 	}
 
-	public function withRequestTarget($request_target)
+	public function withRequestTarget($requestTarget)
 	{
-		$this->base_request = $this->base_request->withRequestTarget($request_target);
+		$this->base_request = $this->base_request->withRequestTarget($requestTarget);
 
 		return $this;
 	}

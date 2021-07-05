@@ -20,7 +20,7 @@ class HereIsOneWeMadeEarlier implements RequestHandlerInterface
 	}
 
 	public function handle(
-		ServerRequestInterface $_request
+		ServerRequestInterface $request
 	) : ResponseInterface {
 		return $this->made_earlier;
 	}

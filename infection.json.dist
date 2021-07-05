@@ -22,7 +22,7 @@
 		},
 		"CastArray": {
 			"ignore": [
-				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::route_info_is_invalid"
 			]
 		},
 		"FalseValue": {
@@ -37,7 +37,7 @@
 		},
 		"LogicalAnd": {
 			"ignore": [
-				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::route_info_is_invalid"
 			]
 		},
 		"LogicalNot": {
@@ -47,7 +47,7 @@
 		},
 		"LogicalOr": {
 			"ignore": [
-				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::route_info_is_invalid"
 			]
 		},
 		"MBString": {
@@ -81,7 +81,13 @@
 		"UnwrapArrayFilter": {
 			"ignore": [
 				"DaftFramework\\DaftRouter\\Router\\Compiler::CompileDispatcherArray",
-				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::route_info_is_invalid"
+			]
+		},
+		"UnwrapArrayValues": {
+			"ignore": [
+				"DaftFramework\\DaftRouter\\Router\\Compiler::CompileDispatcherArray",
+				"DaftFramework\\DaftRouter\\Router\\Dispatch::route_info_is_invalid"
 			]
 		}
     }

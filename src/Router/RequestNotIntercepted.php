@@ -17,9 +17,9 @@ final class RequestNotIntercepted implements ResponseInterface
 	/** @readonly */
 	private string $protocol_version;
 
-	public function __construct(string $protocol_version = '1.1')
+	public function __construct(string $version = '1.1')
 	{
-		$this->protocol_version = $protocol_version;
+		$this->protocol_version = $version;
 	}
 
 	public function getStatusCode()
@@ -62,9 +62,9 @@ final class RequestNotIntercepted implements ResponseInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withProtocolVersion($protocol_version)
+	public function withProtocolVersion($version)
 	{
-		return new self($protocol_version);
+		return new self($version);
 	}
 
 	public function withHeader($name, $value = '')

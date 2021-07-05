@@ -13,6 +13,9 @@ use FastRoute\Dispatcher;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
+/**
+ * @psalm-import-type DISPATCH from Dispatch
+ */
 final class Found extends Dispatch
 {
 	/**
@@ -49,15 +52,7 @@ final class Found extends Dispatch
 	public array $args;
 
 	/**
-	 * @param array{
-	 *	0:Dispatcher::FOUND,
-	 *	1:array{
-	 *		DaftFramework\DaftRouter\Interceptor:list<class-string<Interceptor>>,
-	 *		DaftFramework\DaftRouter\Modifier:list<class-string<Modifier>>,
-	 *		0:class-string<Route>
-	 *	},
-	 *	2:array<string, string|null>
-	 * } $dispatch
+	 * @param DISPATCH $dispatch
 	 */
 	public function __construct(
 		ServerRequestInterface $request,

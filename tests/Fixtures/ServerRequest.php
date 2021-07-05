@@ -45,7 +45,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withUploadedFiles(array $files)
+	public function withUploadedFiles(array $uploadedFiles)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}

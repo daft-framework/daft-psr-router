@@ -18,19 +18,13 @@ use function mb_strpos;
 use SignpostMarv\DaftInterfaceCollector\StaticMethodCollector;
 
 /**
+ * @psalm-import-type COMPILED_SUB_ARRAY from Dispatch
+ *
  * @psalm-type COMPILED_ARRAY = array<
  *	string,
  *	array<
  *		string,
- *		array{
- *			DaftFramework\DaftRouter\Interceptor:list<
- *				class-string<Interceptor>
- *			>,
- *			DaftFramework\DaftRouter\Modifier:list<
- *				class-string<Modifier>
- *			>,
- *			0:class-string<Route>
- *		}
+ *		COMPILED_SUB_ARRAY
  *	>
  * >
  */
@@ -119,8 +113,8 @@ final class Compiler
 				$filter = static::ClosureForFilterThatMatchesUri($uri);
 
 				$append = [
-					Interceptor::class => array_filter($interceptors, $filter),
-					Modifier::class => array_filter($modifiers, $filter),
+					Interceptor::class => array_values(array_filter($interceptors, $filter)),
+					Modifier::class => array_values(array_filter($modifiers, $filter)),
 					0 => $route,
 				];
 

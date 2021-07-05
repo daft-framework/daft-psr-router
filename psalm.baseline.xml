@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files psalm-version="4.8.1@f73f2299dbc59a3e6c4d66cff4605176e728ee69">
+  <file src="src/Filter.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Route.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Router/Dispatch.php">
-    <RedundantCast occurrences="2">
-      <code>(array) $route_info[self::INDEX_RESULT][Interceptor::class]</code>
-      <code>(array) $route_info[self::INDEX_RESULT][Modifier::class]</code>
-    </RedundantCast>
+    <InvalidArgument occurrences="1">
+      <code>$route_info</code>
+    </InvalidArgument>
+  </file>
+  <file src="src/Router/MethodNotAllowed.php">
+    <PossiblyUnusedProperty occurrences="1">
+      <code>$allowed_methods</code>
+    </PossiblyUnusedProperty>
+  </file>
+  <file src="src/Source.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>RouterSources</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/TypedRoute.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/Fixtures/Profile.php">
     <MoreSpecificImplementedParamType occurrences="1">

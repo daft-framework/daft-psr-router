@@ -69,6 +69,7 @@ class FoundTest extends Base
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::route_info_is_invalid()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::handle()
 	 * @covers \DaftFramework\DaftRouter\Router\HereIsOneWeMadeEarlier::__construct()
@@ -168,6 +169,7 @@ class FoundTest extends Base
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::route_info_is_invalid()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
 	 * @covers \DaftFramework\DaftRouter\TypedRoute::__construct()
 	 *
@@ -243,6 +245,7 @@ class FoundTest extends Base
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::route_info_is_invalid()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
 	 *
 	 * @param list<class-string<Source>> $sources
@@ -283,6 +286,7 @@ class FoundTest extends Base
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::route_info_is_invalid()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::handle()
 	 * @covers \DaftFramework\DaftRouter\Router\HereIsOneWeMadeEarlier::__construct()

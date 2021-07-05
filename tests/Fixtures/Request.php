@@ -26,7 +26,7 @@ class Request extends Message implements RequestInterface
 		throw new BadMethodCallException('Not Implemented!');
 	}
 
-	public function withRequestTarget($request_target)
+	public function withRequestTarget($requestTarget)
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}

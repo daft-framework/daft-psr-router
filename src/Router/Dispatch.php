@@ -25,6 +25,18 @@ use Psr\Http\Message\ServerRequestInterface;
 use function rawurldecode;
 use UnexpectedValueException;
 
+/**
+ * @psalm-type COMPILED_SUB_ARRAY = array{
+ *	0:class-string<Route>,
+ *	DaftFramework\DaftRouter\Interceptor:list<class-string<Interceptor>>,
+ *	DaftFramework\DaftRouter\Modifier:list<class-string<Modifier>>
+ * }
+ * @psalm-type DISPATCH = array{
+ *	0:Dispatcher::FOUND,
+ *	1:COMPILED_SUB_ARRAY,
+ *	2:array<string, string|null>
+ * }
+ */
 abstract class Dispatch
 {
 	const INDEX_STATUS = 0;
@@ -76,6 +88,22 @@ abstract class Dispatch
 
 			return new MethodNotAllowed($allowed_methods);
 		} elseif (
+			self::route_info_is_invalid($route_info)
+		) {
+			throw new UnexpectedValueException(
+				'Dispatcher did not resolve to expected format!'
+			);
+		}
+
+		return new Found($request, $route_info);
+	}
+
+	/**
+	 * @psalm-assert-if-false DISPATCH $route_info
+	 */
+	private static function route_info_is_invalid(array $route_info) : bool
+	{
+		return (
 			Dispatcher::FOUND !== $route_info[self::INDEX_STATUS] ||
 			self::EXPECTED_FOUND_SIZE !== count($route_info) ||
 			! isset($route_info[self::INDEX_RESULT], $route_info[self::INDEX_ARGS]) ||
@@ -91,7 +119,7 @@ abstract class Dispatch
 			! is_array($route_info[self::INDEX_RESULT][Modifier::class]) ||
 			! is_string($route_info[self::INDEX_RESULT][self::INDEX_ROUTE]) ||
 			! is_a($route_info[self::INDEX_RESULT][self::INDEX_ROUTE], Route::class, true) ||
-			$route_info[self::INDEX_RESULT][Interceptor::class] !== array_filter(
+			$route_info[self::INDEX_RESULT][Interceptor::class] !== array_values(array_filter(
 				(array) $route_info[self::INDEX_RESULT][Interceptor::class],
 				/**
 				 * @param mixed $value
@@ -104,8 +132,8 @@ abstract class Dispatch
 						is_a($value, Interceptor::class, true);
 				},
 				ARRAY_FILTER_USE_BOTH
-			) ||
-			$route_info[self::INDEX_RESULT][Modifier::class] !== array_filter(
+			)) ||
+			$route_info[self::INDEX_RESULT][Modifier::class] !== array_values(array_filter(
 				(array) $route_info[self::INDEX_RESULT][Modifier::class],
 				/**
 				 * @param mixed $value
@@ -118,7 +146,7 @@ abstract class Dispatch
 						is_a($value, Modifier::class, true);
 				},
 				ARRAY_FILTER_USE_BOTH
-			) ||
+			)) ||
 			$route_info[self::INDEX_ARGS] !== array_filter(
 				$route_info[self::INDEX_ARGS],
 				/**
@@ -132,25 +160,6 @@ abstract class Dispatch
 				},
 				ARRAY_FILTER_USE_BOTH
 			)
-		) {
-			throw new UnexpectedValueException(
-				'Dispatcher did not resolve to expected format!'
-			);
-		}
-
-		/**
-		 * @var array{
-		 *	0:Dispatcher::FOUND,
-		 *	1:array{
-		 *		DaftFramework\DaftRouter\Interceptor:list<class-string<Interceptor>>,
-		 *		DaftFramework\DaftRouter\Modifier:list<class-string<Modifier>>,
-		 *		0:class-string<Route>
-		 *	},
-		 *	2:array<string, string|null>
-		 * }
-		 */
-		$route_info = $route_info;
-
-		return new Found($request, $route_info);
+		);
 	}
 }

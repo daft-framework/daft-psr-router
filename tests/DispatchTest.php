@@ -59,6 +59,7 @@ class DispatchTest extends Base
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::CompileDispatcherArray()
 	 * @covers \DaftFramework\DaftRouter\Router\Compiler::GenerateRouteCollectorHandler()
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::route_info_is_invalid()
 	 * @covers \DaftFramework\DaftRouter\Router\Found::__construct()
 	 * @covers \DaftFramework\DaftRouter\Router\MethodNotAllowed::__construct()
 	 * @covers \DaftFramework\DaftRouter\Source::RouterSources()
@@ -87,6 +88,7 @@ class DispatchTest extends Base
 
 	/**
 	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::Resolve()
+	 * @covers \DaftFramework\DaftRouter\Router\Dispatch::route_info_is_invalid()
 	 */
 	public function test_dispatch_resolve_failure() : void
 	{
