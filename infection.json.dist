@@ -35,11 +35,6 @@
 				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
 			]
 		},
-		"FalseValue": {
-			"ignore": [
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUri"
-			]
-		},
 		"InstanceOf_": {
 			"ignore": [
 				"DaftFramework\\DaftRouter\\Router\\Found::handle"
@@ -68,24 +63,6 @@
 		"PregQuote": {
 			"ignore": [
 				"DaftFramework\\DaftRouter\\Router\\Dispatch::Resolve"
-			]
-		},
-		"This": {
-			"ignore": [
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withCookieParams",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withQueryParams",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUploadedFiles",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withParsedBody",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withAttribute",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withoutAttribute",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withRequestTarget",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withMethod",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withUri",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withProtocolVersion",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withHeader",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withAddedHeader",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withoutHeader",
-				"DaftFramework\\DaftRouter\\Router\\MutableRequest::withBody"
 			]
 		},
 		"UnwrapArrayFilter": {
