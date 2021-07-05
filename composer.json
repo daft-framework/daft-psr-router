@@ -37,7 +37,7 @@
 		"static-analysis": [
 			"phpcpd src tests",
 			"composer-require-checker check ./composer.json",
-			"php-cs-fixer fix --verbose --allow-risky=yes --dry-run --diff-format=udiff"
+			"php-cs-fixer fix --verbose --allow-risky=yes --dry-run"
 		]
 	},
 	"conflict": {
@@ -53,17 +53,17 @@
 		"psr/http-message": "^1.0",
 		"psr/http-server-handler": "^1.0",
 		"psr/http-server-middleware": "^1.0",
-		"signpostmarv/daft-interface-collector": "^2.4"
+		"signpostmarv/daft-interface-collector": "^2.5"
 	},
 	"require-dev": {
-		"infection/infection": "^0.20.2",
-		"maglnet/composer-require-checker": "^2.1",
+		"infection/infection": "^0.23.0",
+		"maglnet/composer-require-checker": "^3.3",
 		"php-coveralls/php-coveralls": "^2.4",
 		"phpunit/phpunit": "^9.5",
-		"psalm/plugin-phpunit": "^0.15.0",
+		"psalm/plugin-phpunit": "^0.16.1",
 		"roave/security-advisories": "dev-master",
 		"sebastian/phpcpd": "^6.0",
-		"signpostmarv/php-cs-fixer-config": "^0.19.0",
-		"vimeo/psalm": "^4.3"
+		"signpostmarv/php-cs-fixer-config": "^0.21.1",
+		"vimeo/psalm": "^4.8"
 	}
 }
