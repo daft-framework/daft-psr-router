@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 
 final class Http401 implements ResponseInterface
 {
-	const HTTP_UNAUTHORIZED = 401;
+	public const HTTP_UNAUTHORIZED = 401;
 
 	/** @readonly */
 	private string $protocol_version;

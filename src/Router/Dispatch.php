@@ -40,17 +40,17 @@ use UnexpectedValueException;
  */
 abstract class Dispatch
 {
-	const INDEX_STATUS = 0;
+	public const INDEX_STATUS = 0;
 
-	const INDEX_RESULT = 1;
+	public const INDEX_RESULT = 1;
 
-	const INDEX_ARGS = 2;
+	public const INDEX_ARGS = 2;
 
-	const INDEX_ROUTE = 0;
+	public const INDEX_ROUTE = 0;
 
-	const EXPECTED_FOUND_SIZE = 3;
+	public const EXPECTED_FOUND_SIZE = 3;
 
-	const EXPECTED_RESULT_SIZE = 3;
+	public const EXPECTED_RESULT_SIZE = 3;
 
 	/**
 	 * @return NotFound|MethodNotAllowed|Found

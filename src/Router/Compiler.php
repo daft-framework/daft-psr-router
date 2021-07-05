@@ -31,7 +31,7 @@ use SignpostMarv\DaftInterfaceCollector\StaticMethodCollector;
  */
 final class Compiler
 {
-	const COLLECTOR_CONFIG = [
+	public const COLLECTOR_CONFIG = [
 		Source::class => [
 			'RouterSources' => [
 				Interceptor::class,
@@ -42,7 +42,7 @@ final class Compiler
 		],
 	];
 
-	const COLLECTED_INTERFACES = [
+	public const COLLECTED_INTERFACES = [
 		Interceptor::class,
 		Modifier::class,
 		Route::class,

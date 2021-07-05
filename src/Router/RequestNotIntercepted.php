@@ -12,7 +12,7 @@ use Psr\Http\Message\StreamInterface;
 
 final class RequestNotIntercepted implements ResponseInterface
 {
-	const HTTP_INTERNAL_SERVER_ERROR = 500;
+	public const HTTP_INTERNAL_SERVER_ERROR = 500;
 
 	/** @readonly */
 	private string $protocol_version;
