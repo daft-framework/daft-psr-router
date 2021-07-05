@@ -8,6 +8,7 @@ namespace DaftFramework\DaftRouter\Router;
 
 use function array_filter;
 use const ARRAY_FILTER_USE_BOTH;
+use function array_values;
 use function count;
 use DaftFramework\DaftRouter\Interceptor;
 use DaftFramework\DaftRouter\Modifier;
@@ -103,7 +104,7 @@ abstract class Dispatch
 	 */
 	private static function route_info_is_invalid(array $route_info) : bool
 	{
-		return (
+		return
 			Dispatcher::FOUND !== $route_info[self::INDEX_STATUS] ||
 			self::EXPECTED_FOUND_SIZE !== count($route_info) ||
 			! isset($route_info[self::INDEX_RESULT], $route_info[self::INDEX_ARGS]) ||
@@ -159,7 +160,6 @@ abstract class Dispatch
 						(is_string($value) || is_null($value));
 				},
 				ARRAY_FILTER_USE_BOTH
-			)
-		);
+			);
 	}
 }

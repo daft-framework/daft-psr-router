@@ -7,6 +7,7 @@ declare(strict_types=1);
 namespace DaftFramework\DaftRouter\Router;
 
 use function array_filter;
+use function array_values;
 use Closure;
 use DaftFramework\DaftRouter\Interceptor;
 use DaftFramework\DaftRouter\Modifier;

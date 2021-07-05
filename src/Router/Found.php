@@ -9,7 +9,6 @@ namespace DaftFramework\DaftRouter\Router;
 use DaftFramework\DaftRouter\Interceptor;
 use DaftFramework\DaftRouter\Modifier;
 use DaftFramework\DaftRouter\Route;
-use FastRoute\Dispatcher;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
