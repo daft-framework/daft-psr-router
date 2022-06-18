@@ -13,11 +13,11 @@ use Psr\Http\Server\RequestHandlerInterface;
 
 class Home implements Route
 {
-	public function __construct(array $args)
+	public function __construct()
 	{
 	}
 
-	public function GenerateHandler() : RequestHandlerInterface
+	public function GenerateHandler(array $args) : RequestHandlerInterface
 	{
 		return new HereIsOneWeMadeEarlier(new RequestNotIntercepted());
 	}

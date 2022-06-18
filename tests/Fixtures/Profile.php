@@ -19,34 +19,23 @@ use function rawurlencode;
  */
 class Profile implements TypedRoute
 {
-	/**
-	 * @var T1
-	 *
-	 * @readonly
-	 */
-	private array $args;
-
-	/**
-	 * @param T1 $args
-	 */
-	public function __construct(array $args)
+	public function __construct()
 	{
-		$this->args = $args;
 	}
 
-	public function TypedArgsFromUntyped(string $method = null) : TypedArgs
+	public function TypedArgsFromUntyped(array $args, string $method = null) : TypedArgs
 	{
-		if (isset($this->args['id'], $this->args['slug'])) {
+		if (isset($args['id'], $args['slug'])) {
 			/** @var array{id:string, slug:string} */
-			$args = $this->args;
+			$args = $args;
 
 			return new Slugged($args);
 		}
 
-		return new Unslugged(['id' => $this->args['id']]);
+		return new Unslugged(['id' => $args['id']]);
 	}
 
-	public function GenerateHandler() : RequestHandlerInterface
+	public function GenerateHandler(array $args) : RequestHandlerInterface
 	{
 		throw new BadMethodCallException('Not Implemented!');
 	}
@@ -59,9 +48,9 @@ class Profile implements TypedRoute
 	}
 
 	/**
-	 * @param Slugged|Unslugged $args
+	 * @psalm-param Slugged|Unslugged $args
 	 */
-	public static function RouteStringFromTypedArgs(
+	public function RouteStringFromTypedArgs(
 		TypedArgs $args,
 		string $method = null
 	) : string {

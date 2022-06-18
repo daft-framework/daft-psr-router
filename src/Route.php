@@ -15,12 +15,12 @@ use Psr\Http\Server\RequestHandlerInterface;
  */
 interface Route
 {
-	/**
-	 * @param T1 $args
-	 */
-	public function __construct(array $args);
+	public function __construct();
 
-	public function GenerateHandler() : RequestHandlerInterface;
+	/**
+	 * @psalm-param T1 $args
+	 */
+	public function GenerateHandler(array $args) : RequestHandlerInterface;
 
 	/**
 	 * @return array<string, list<THTTP>> an array of URIs & methods

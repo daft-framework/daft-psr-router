@@ -11,7 +11,6 @@ use DaftFramework\DaftRouter\Router\RequestNotIntercepted;
 use DaftFramework\DaftRouter\TypedArgs;
 use DaftFramework\DaftRouter\TypedRoute;
 use DaftFramework\DaftRouter\UntypedRoute;
-use function is_string;
 use Psr\Http\Server\RequestHandlerInterface;
 use function rawurlencode;
 use UnexpectedValueException;
@@ -24,26 +23,23 @@ use UnexpectedValueException;
  */
 class Secret implements TypedRoute, UntypedRoute
 {
-	/**
-	 * @var T1
-	 *
-	 * @readonly
-	 */
-	private array $args;
-
-	/**
-	 * @param T1 $args
-	 */
-	public function __construct(array $args)
+	public function __construct()
 	{
-		$this->args = $args;
 	}
 
-	public function TypedArgsFromUntyped(string $method = null) : TypedArgs
+	/**
+	 * @psalm-param T1 $args
+	 *
+	 * @return SecretNumber
+	 */
+	public function TypedArgsFromUntyped(array $args, string $method = null) : TypedArgs
 	{
-		if (isset($this->args['number']) && is_string($this->args['number'])) {
+		/** @var string|null */
+		$number = $args['number'] ?? null;
+
+		if (null !== $number) {
 			return new SecretNumber([
-				'number' => $this->args['number'],
+				'number' => $number,
 			]);
 		}
 
@@ -56,7 +52,7 @@ class Secret implements TypedRoute, UntypedRoute
 		);
 	}
 
-	public function GenerateHandler() : RequestHandlerInterface
+	public function GenerateHandler(array $args) : RequestHandlerInterface
 	{
 		return new HereIsOneWeMadeEarlier(new RequestNotIntercepted());
 	}
@@ -74,7 +70,7 @@ class Secret implements TypedRoute, UntypedRoute
 	/**
 	 * @param SecretNumber $args
 	 */
-	public static function RouteStringFromTypedArgs(
+	public function RouteStringFromTypedArgs(
 		TypedArgs $args,
 		string $method = null
 	) : string {

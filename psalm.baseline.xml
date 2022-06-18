@@ -1,2 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88"/>
+<files psalm-version="4.23.0@f1fe6ff483bf325c803df9f510d09a03fd796f88">
+  <file src="src/Filter.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Route.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Router/MethodNotAllowed.php">
+    <PossiblyUnusedProperty occurrences="1">
+      <code>$allowed_methods</code>
+    </PossiblyUnusedProperty>
+  </file>
+  <file src="src/Source.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>RouterSources</code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/TypedRoute.php">
+    <PossiblyUnusedMethod occurrences="1">
+      <code>__construct</code>
+    </PossiblyUnusedMethod>
+  </file>
+</files>

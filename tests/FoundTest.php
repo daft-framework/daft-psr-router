@@ -201,15 +201,17 @@ class FoundTest extends Base
 		static::assertSame($expected_route_type, $found->route);
 		static::assertSame($expected_args, $found->args);
 
+		$instance = new $expected_route_type();
+
 		$typed = (
-			new $expected_route_type($found->args)
-		)->TypedArgsFromUntyped($method);
+			$instance
+		)->TypedArgsFromUntyped($found->args, $method);
 
 		static::assertInstanceOf($expected_typed_args_type, $typed);
 
 		static::assertSame(
 			$expected_route,
-			$expected_route_type::RouteStringFromTypedArgs($typed, $method)
+			$instance->RouteStringFromTypedArgs($typed, $method)
 		);
 	}
 

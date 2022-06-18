@@ -15,21 +15,23 @@ namespace DaftFramework\DaftRouter;
  */
 interface TypedRoute extends Route
 {
-	/**
-	 * @param T1 $args
-	 */
-	public function __construct(array $args);
+	public function __construct();
 
 	/**
-	 * @param T2 $method
+	 * @psalm-param T1 $args
+	 * @psalm-param T2 $method
 	 *
-	 * @return T3
+	 * @psalm-return T3
 	 */
 	public function TypedArgsFromUntyped(
+		array $args,
 		string $method
 	) : TypedArgs;
 
-	public static function RouteStringFromTypedArgs(
+	/**
+	 * @psalm-param T3 $args
+	 */
+	public function RouteStringFromTypedArgs(
 		TypedArgs $args,
 		string $method
 	) : string;

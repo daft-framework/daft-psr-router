@@ -51,7 +51,7 @@ final class Found extends Dispatch
 	public array $args;
 
 	/**
-	 * @param DISPATCH $dispatch
+	 * @psalm-param DISPATCH $dispatch
 	 */
 	public function __construct(
 		ServerRequestInterface $request,
@@ -84,7 +84,7 @@ final class Found extends Dispatch
 		$route = $this->route;
 
 		if ($response instanceof RequestNotIntercepted) {
-			$response = (new $route($this->args))->GenerateHandler()->handle(
+			$response = (new $route())->GenerateHandler($this->args)->handle(
 				$this->request
 			);
 		}

@@ -12,7 +12,7 @@ namespace DaftFramework\DaftRouter;
 interface TypedArgs
 {
 	/**
-	 * @param T1 $args
+	 * @psalm-param T1 $args
 	 */
 	public function __construct(array $args);
 }

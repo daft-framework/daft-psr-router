@@ -53,7 +53,7 @@ abstract class Dispatch
 	public const EXPECTED_RESULT_SIZE = 3;
 
 	/**
-	 * @return NotFound|MethodNotAllowed|Found
+	 * @psalm-return NotFound|MethodNotAllowed|Found
 	 */
 	final public static function Resolve(
 		Dispatcher $dispatcher,
@@ -66,9 +66,6 @@ abstract class Dispatch
 
 		$path = preg_replace_callback(
 			'/\/([^\/]+)/',
-			/**
-			 * @param array<int, string> $matches
-			 */
 			static function (array $matches) : string {
 				return '/' . rawurldecode($matches[1]);
 			},
@@ -96,6 +93,10 @@ abstract class Dispatch
 			);
 		}
 
+		/**
+		 * @psalm-suppress ArgumentTypeCoercion
+		 * @psalm-suppress InvalidArgument
+		 */
 		return new Found($request, $route_info);
 	}
 
@@ -122,11 +123,7 @@ abstract class Dispatch
 			! is_a($route_info[self::INDEX_RESULT][self::INDEX_ROUTE], Route::class, true) ||
 			$route_info[self::INDEX_RESULT][Interceptor::class] !== array_values(array_filter(
 				(array) $route_info[self::INDEX_RESULT][Interceptor::class],
-				/**
-				 * @param mixed $value
-				 * @param array-key $key
-				 */
-				static function ($value, $key) : bool {
+				static function (mixed $value, int|string $key) : bool {
 					return
 						is_int($key) &&
 						is_string($value) &&
@@ -136,11 +133,7 @@ abstract class Dispatch
 			)) ||
 			$route_info[self::INDEX_RESULT][Modifier::class] !== array_values(array_filter(
 				(array) $route_info[self::INDEX_RESULT][Modifier::class],
-				/**
-				 * @param mixed $value
-				 * @param array-key $key
-				 */
-				static function ($value, $key) : bool {
+				static function (mixed $value, int|string $key) : bool {
 					return
 						is_int($key) &&
 						is_string($value) &&
@@ -150,11 +143,7 @@ abstract class Dispatch
 			)) ||
 			$route_info[self::INDEX_ARGS] !== array_filter(
 				$route_info[self::INDEX_ARGS],
-				/**
-				 * @param mixed $value
-				 * @param array-key $key
-				 */
-				static function ($value, $key) : bool {
+				static function (mixed $value, int|string $key) : bool {
 					return
 						is_string($key) &&
 						(is_string($value) || is_null($value));
