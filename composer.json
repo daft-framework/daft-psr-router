@@ -25,7 +25,10 @@
 	},
 	"config": {
 		"classmap-authoritative": true,
-		"sort-packages": true
+		"sort-packages": true,
+		"allow-plugins": {
+			"infection/extension-installer": false
+		}
 	},
 	"scripts": {
 		"tests": [
